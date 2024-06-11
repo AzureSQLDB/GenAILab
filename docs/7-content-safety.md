@@ -2,7 +2,7 @@
 
 # Using Azure AI Content Safety
 
-![A picture of the AI Language logo](./media/ch5/contentSafety.png)
+![A picture of the AI Language logo](./media/ch7/contentSafety.png)
 
 ## Azure AI Content Safety
 
