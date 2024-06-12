@@ -12,7 +12,7 @@ Welcome to the hands-on lab where you'll learn Generative AI using Azure SQL Dat
 - **Practical tips and examples**: Apply chat-driven features in app development with real-world examples.
 
 ## Modules
-1. **Creating and Connecting to Your Free Azure SQL Database**: Get started with your own Azure SQL Database.
+1. **[Creating and Connecting to Your Free Azure SQL Database](./docs/1-create-azure-SQL-database.md)**: Get started with your own Azure SQL Database.
 2. **Getting Started with REST in the Database**: Learn the basics of RESTful interactions within the database context.
 3. **Creating, Embedding, and Storing in SQL Database**: Dive into the process of embedding and storing data using SQL.
 4. **Vector Search with Vector Functions**: Utilize vector functions for efficient search capabilities.
