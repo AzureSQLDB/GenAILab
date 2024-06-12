@@ -30,12 +30,12 @@ An embedding is a special format of data representation that machine learning mo
 1. Copy the following SQL and paste it into the SQL query editor. You can see from the T-SQL that we are going to create an embedding for a product name from data in the Azure SQL Database. The query `SELECT [Name] FROM [SalesLT].[Product] WHERE ProductID = 846` returns "**Taillights - Battery-Powered**" and will be sent to the OpenAI REST endpoint.
 
     ```SQL
-    declare @url nvarchar(4000) = N'https://build2024openai.openai.azure.com/openai/deployments/build2024-embeddings/embeddings?api-version=2024-02-01';
+    declare @url nvarchar(4000) = N'https://mlads.openai.azure.com/openai/deployments/mladsembeddings/embeddings?api-version=2024-02-01';
     declare @headers nvarchar(300) = N'{"api-key": "OPENAI_KEY"}';
     declare @message nvarchar(max);
-    SET @message = (SELECT [Description]
-                    FROM [SalesLT].[ProductDescription]
-                    WHERE ProductDescriptionID = 457);
+    SET @message = (SELECT [description]
+                FROM [dbo].[walmart_product_details]
+                WHERE id = 2);
     declare @payload nvarchar(max) = N'{"input": "' + @message + '"}';
 
     declare @ret int, @response nvarchar(max);
