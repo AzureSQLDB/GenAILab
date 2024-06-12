@@ -22,7 +22,7 @@ Welcome to the hands-on lab where you'll learn Generative AI using Azure SQL Dat
 ## Prerequisites
 - Basic knowledge of SQL databases and RESTful APIs.
 - An Azure account with the necessary permissions to create and manage resources.
-- [Visual Studio Code](https://code.visualstudio.com/learntocode?) or [Azure Data Studio](https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio) installed
+- [Visual Studio Code](https://code.visualstudio.com/learntocode?) with [mssql extension](https://learn.microsoft.com/en-us/sql/tools/visual-studio-code/sql-server-develop-use-vscode?view=sql-server-ver16) or [Azure Data Studio](https://learn.microsoft.com/en-us/azure-data-studio/download-azure-data-studio) installed
 
 ## Getting Started
 To begin the lab, clone this repository and follow the instructions in each section. Make sure to check the [deck] directory for additional materials.
