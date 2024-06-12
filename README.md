@@ -13,12 +13,11 @@ Welcome to the hands-on lab where you'll learn Generative AI using Azure SQL Dat
 
 ## Modules
 1. **[Creating and Connecting to Your Free Azure SQL Database](./docs/1-create-azure-SQL-database.md)**: Get started with your own Azure SQL Database.
-2. **Getting Started with REST in the Database**: Learn the basics of RESTful interactions within the database context.
-3. **Creating, Embedding, and Storing in SQL Database**: Dive into the process of embedding and storing data using SQL.
-4. **Vector Search with Vector Functions**: Utilize vector functions for efficient search capabilities.
-5. **Hybrid Search**: Combine the power of traditional and vector searches.
-6. **Chat Completion Using Azure OpenAI**: Implement chat completions with the help of Azure OpenAI.
-7. **Using the Azure AI Content Safety Endpoints**: Ensure content safety with Azure AI's endpoints.
+2. **[Creating, Embedding, and Storing in SQL Database](./docs/2-creating-embedding-and-storing-in-SQL-database.md)**: Dive into the process of embedding and storing data using SQL.
+3. **[Vector Search with Vector Functions](./docs/3-vector-search-with-vector-functions.md)**: Utilize vector functions for efficient search capabilities.
+4. **[Hybrid Search](./docs/4-hybrid-search.md)**: Combine the power of traditional and vector searches.
+5. **[Chat Completion Using Azure OpenAI](./docs/5-chat-completion-using-azure-openai.md)**: Implement chat completions with the help of Azure OpenAI.
+6. **[Using the Azure AI Content Safety](./docs/6-content-safety.md)**: Ensure content safety with Azure AI's endpoints.
 
 ## Prerequisites
 - Basic knowledge of SQL databases and RESTful APIs.
