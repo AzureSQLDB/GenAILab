@@ -23,3 +23,4 @@ FROM [dbo].[walmart_product_details]
 WHERE sale_price <= 50 -- Filter by sale price
 AND available = 'TRUE' -- Filter by availability
 ORDER BY distance; -- Order by the closest distance
+```

@@ -37,3 +37,4 @@ SELECT TOP(10)
   vector_distance('cosine', @search_vector, product_description_vector) AS distance
 FROM [dbo].[walmart_product_details]
 ORDER BY distance; -- Order by the closest distance
+```
