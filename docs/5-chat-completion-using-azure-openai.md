@@ -2,7 +2,7 @@
 
 # Using Azure OpenAI Service
 
-![A picture of the Azure OpenAI Service logo](./media/ch6/azureopenai.png)
+![A picture of the Azure OpenAI Service logo](./media/ch5/azureopenai.png)
 
 ## Azure OpenAI Service
 
@@ -63,7 +63,7 @@ The image generation API creates an image from a text prompt.
 
 1. Now, you are in charge. Either select a new product description ID or try creating an image yourself! Here is some inspiration:
 
-    ![An image created by Azure OpenAI DALL-E 3](./media/ch5/image2.png)
+    ![An image created by Azure OpenAI DALL-E 3](./media/ch5/generated_30.png)
 
 ## Azure OpenAI GPT-4o
 
