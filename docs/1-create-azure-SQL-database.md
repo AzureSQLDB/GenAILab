@@ -2,7 +2,7 @@
 
 # Create and Connect to an Azure SQL Database
 
-The next section of the workshop you will be creating and connecting to an Azure SQL Database.
+This section of the workshop you will be creating and connecting to an Azure SQL Database.
 
 ![A picture of the Azure SQL DB Logo](./media/ch2/sqldb1.png)
 

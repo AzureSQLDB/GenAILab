@@ -8,7 +8,6 @@ Welcome to the hands-on lab where you'll learn Generative AI using Azure SQL Dat
 - **RESTful API calls**: Understand how to make REST calls to Azure AI Content Safety and Azure OpenAI services.
 - **Extend AI scenarios**: Explore Hybrid Search and Generative AI implementations.
 - **Chat-driven SQL interfaces**: Implement chat-driven interfaces with SQL databases for more intelligent applications.
-- **Interactive data exploration**: Enhance user experiences through intuitive and interactive data exploration.
 - **Practical tips and examples**: Apply chat-driven features in app development with real-world examples.
 
 ## Modules
