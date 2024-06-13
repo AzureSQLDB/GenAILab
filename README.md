@@ -18,6 +18,8 @@ Welcome to the hands-on lab where you'll learn Generative AI using Azure SQL Dat
 5. **[Chat Completion Using Azure OpenAI](./docs/5-chat-completion-using-azure-openai.md)**: Implement chat completions with the help of Azure OpenAI.
 6. **[Using the Azure AI Content Safety](./docs/6-content-safety.md)**: Ensure content safety with Azure AI's endpoints.
 
+Deck with resources can be found [here](./docs/media/Chat with your Data Lab.pdf)
+
 ## Prerequisites
 - Basic knowledge of SQL databases and RESTful APIs.
 - An Azure account with the necessary permissions to create and manage resources.
