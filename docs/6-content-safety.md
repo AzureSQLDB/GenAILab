@@ -59,7 +59,7 @@ The first feature to be used with AI Content Safety is **Moderate text content**
     select @ret as ReturnCode, @response as Response;
     ```
 
-1. Replace the **CONTENT_KEY** text with the Model Key.
+1. Replace the **CONTENT_KEY** text with the AI Language Key.
 
 1. Execute the SQL statement with the run button.
 
@@ -159,7 +159,7 @@ Not all jailbreak attacks originate directly from users; third-party documents, 
     select @ret as ReturnCode, @response as Response;
     ```
 
-1. Replace the **CONTENT_KEY** text with the AI Language Key that was returned to you in the previous chapter when testing connectivity.
+1. Replace the **CONTENT_KEY** text with the AI Language Key.
 
 1. Execute the SQL statement with the run button.
 
@@ -204,7 +204,7 @@ Use protected material detection to detect and protect third-party text material
     select @ret as ReturnCode, @response as Response;
     ```
 
-1. Replace the **CONTENT_KEY** text with the AI Language Key that was returned to you in the previous chapter when testing connectivity.
+1. Replace the **CONTENT_KEY** text with the AI Language Key.
 
 1. Execute the SQL statement with the run button.
 
