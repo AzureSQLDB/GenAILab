@@ -53,6 +53,9 @@ The image generation API creates an image from a text prompt.
         @response = @response output;
 
     select @ret as ReturnCode, @response as Response;
+    
+    if (@ret=0)
+        select json_value(@response, '$.result.data[0].url')
     ```
 
 1. Replace the **OPENAI_KEY** text with the Model Deployment Key.

@@ -57,6 +57,12 @@ The first feature to be used with AI Content Safety is **Moderate text content**
     @response = @response output;
 
     select @ret as ReturnCode, @response as Response;
+    if (@ret=0)
+        select 
+            * 
+        from 
+            openjson(@response, '$.result.categoriesAnalysis') with 
+                (category nvarchar(100), severity decimal(10,2));
     ```
 
 1. Replace the **CONTENT_KEY** text with the AI Language Key.
