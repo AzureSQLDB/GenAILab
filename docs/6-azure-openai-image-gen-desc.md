@@ -99,8 +99,8 @@ Let's use the new GPT-4o model for this next call. We are going to ask it to des
 1. View the return message and see if the new GPT-4o model was able to describe it.
 
     ```JSON
-                "message": {
-                    "content": "This is an image of a bright green t-shirt with short sleeves. It has a small black graphic on the left chest area, which appears to be an abstract or stylized design. The neckline is round and there’s a hint of a tag visible through the collar. The hem at the bottom of the shirt also features a black trim.",
-                    "role": "assistant"
-                }
+    "message": {
+        "content": "This is an image of a bright green t-shirt with short sleeves. It has a small black graphic on the left chest area, which appears to be an abstract or stylized design. The neckline is round and there’s a hint of a tag visible through the collar. The hem at the bottom of the shirt also features a black trim.",
+        "role": "assistant"
+    }
     ```

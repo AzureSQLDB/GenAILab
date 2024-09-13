@@ -137,10 +137,9 @@ You want to find help customers to find the best set of products for somthing, f
 
 1. Execute the SQL statement with the run button.
 
-1. View the return message and see what the gpt-4 model was able to recommnend. Try using different search phrases. For example for `I want to build an home theater`, you may get:
+1. View the return message and see what the gpt-4 model was able to recommnend. Try using different search phrases. For example for the question: *"I am looking for a gift for my friend who is a foodie. She loves to cook and bake. She is always trying out new recipes and experimenting with different ingredients. I want to get her something that will inspire her creativity in the kitchen. Do you have any suggestions?"*, you may get:
 
-    ```
-    To build an impressive home theater, you can start by setting up a high-quality audio system with the Tower Speaker Home Theater System w/Sub For Sony X800E Television TV-Wood, which offers loud and deep bass response along with clear sound across a wide range of frequencies (22412). Complement your audio setup with the Samsung 4K Ultra-HD Blu-ray & DVD Player with HDR, Wi-Fi Streaming to enjoy your favorite movies in stunning 4K resolution (6768). For remote control convenience, consider adding the Generic AH59-01867F Remote Control for Samsung Home Theater System, which is compatible with various Samsung systems and offers a layout similar to the original remote (19934).
-    ```
+    *"For a friend who loves to cook and experiment in the kitchen, consider the 'Growing up in a Korean Kitchen : A Cookbook' which offers a blend of memoir and recipes, perfect for exploring traditional and modern Korean dishes (7779). Another great choice could be 'The New Whole Foods Encyclopedia', a comprehensive resource for selecting, preparing, and using whole foods, which can inspire new culinary creations (10947). For a touch of fun and practicality, the 'Best Choice Products Mason Jars w/Labeling Stickers & Chalk, Set of 5' would be perfect for storing spices or homemade jams (7579)".*
+
 
 
