@@ -14,9 +14,10 @@ Welcome to the hands-on lab where you'll learn Generative AI using Azure SQL Dat
 1. **[Creating and Connecting to Your Free Azure SQL Database](./docs/1-create-azure-SQL-database.md)**: Get started with your own Azure SQL Database.
 2. **[Creating, Embedding, and Storing in SQL Database](./docs/2-creating-embedding-and-storing-in-SQL-database.md)**: Dive into the process of embedding and storing data using SQL.
 3. **[Vector Search with Vector Functions](./docs/3-vector-search-with-vector-functions.md)**: Utilize vector functions for efficient search capabilities.
-4. **[Hybrid Search](./docs/4-hybrid-search.md)**: Combine the power of traditional and vector searches.
-5. **[Chat Completion Using Azure OpenAI](./docs/5-chat-completion-using-azure-openai.md)**: Implement chat completions with the help of Azure OpenAI.
-6. **[Using the Azure AI Content Safety](./docs/6-content-safety.md)**: Ensure content safety with Azure AI's endpoints.
+4. **[Filtered Semantic Search](./docs/4-filtered-semantic-search.md)**: Combine the power of traditional and vector searches.
+5. **[GenAI over your data - Recommendation](./docs/5-azure-openai-recommendation.md)**: Implement chat completions with the help of Azure OpenAI.
+5. **[GenAI over your data - Image Generation and Description](./docs/6-azure-openai-image-gen-desc.md)**: Implement chat completions with the help of Azure OpenAI.
+6. **[Using the Azure AI Content Safety](./docs/7-content-safety.md)**: Ensure content safety with Azure AI's endpoints.
 
 Deck with resources can be found [here](./docs/media/Chat-with-your-Data-Lab.pdf)
 

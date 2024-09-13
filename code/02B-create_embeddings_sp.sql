@@ -1,7 +1,7 @@
 create or alter procedure dbo.create_embeddings
 (
     @input_text nvarchar(max),
-    @embedding varbinary(8000) output
+    @embedding vector(1536) output
 )
 AS
 BEGIN
@@ -41,6 +41,6 @@ end
 declare @json_embedding nvarchar(max) = json_query(@response, '$.result.data[0].embedding');
 
 -- Convert the JSON array to a vector and set return parameter
-set @embedding = JSON_ARRAY_TO_VECTOR(@json_embedding);
+set @embedding = CAST(@json_embedding AS VECTOR(1536));
 
 END;

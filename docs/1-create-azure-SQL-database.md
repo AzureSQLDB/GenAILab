@@ -1,5 +1,3 @@
-![A picture of the Microsoft Logo](./media/graphics/microsoftlogo.png)
-
 # Create and Connect to an Azure SQL Database
 
 This section of the workshop you will be creating and connecting to an Azure SQL Database.

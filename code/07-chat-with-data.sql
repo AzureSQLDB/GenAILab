@@ -1,6 +1,6 @@
 declare @search_text nvarchar(max) = 'help me plan a high school graduation party'
 
-declare @search_vector varbinary(8000)
+declare @search_vector vector(1536)
 
 exec dbo.create_embeddings @search_text, @search_vector output;
 

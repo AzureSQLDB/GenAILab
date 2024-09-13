@@ -1,6 +1,6 @@
 declare @i int = 1;
 declare @text nvarchar(max);
-declare @vector varbinary(8000);
+declare @vector vector(1536);
 
 while @i <= 30000
 BEGIN

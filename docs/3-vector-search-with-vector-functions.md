@@ -1,5 +1,4 @@
-
-## Vector Search with Vector Functions
+# Vector Search with Vector Functions
 
 This SQL script demonstrates how to perform a vector search using vector functions within a SQL database. The goal is to find the top 10 most relevant products from the `walmart_product_details` table that match a given search query based on semantic similarity.
 
@@ -7,7 +6,7 @@ This SQL script demonstrates how to perform a vector search using vector functio
 
 1. **Text to Vector Conversion**:
    - The search text, in this case, 'help me plan a high school graduation party', is declared as an `nvarchar(max)` variable named `@search_text`.
-   - A `varbinary(8000)` variable named `@search_vector` is declared to store the vector representation of the search text.
+   - A `vector(1536)` variable named `@search_vector` is declared to store the vector representation of the search text.
 
 2. **Creating Embeddings**:
    - The `dbo.create_embeddings` stored procedure is executed with `@search_text` as input and `@search_vector` as output.
@@ -25,7 +24,7 @@ This SQL script demonstrates how to perform a vector search using vector functio
 declare @search_text nvarchar(max) = 'help me plan a high school graduation party';
 
 -- Declare a variable to hold the search vector
-declare @search_vector varbinary(8000);
+declare @search_vector vector(1536);
 
 -- Generate the search vector using the 'create_embeddings' stored procedure
 exec dbo.create_embeddings @search_text, @search_vector output;
@@ -38,3 +37,4 @@ SELECT TOP(10)
 FROM [dbo].[walmart_product_details]
 ORDER BY distance; -- Order by the closest distance
 ```
+

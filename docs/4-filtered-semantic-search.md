@@ -1,16 +1,19 @@
-## Hybrid Search with SQL
+# Filtered Semantic Search with SQL
 
-This section explains the implementation of a Hybrid Search query in SQL. The Hybrid Search combines traditional SQL queries with vector-based search capabilities to provide enhanced search results.
+This section explains the implementation of a Filtered Search query in SQL. The Hybrid Search combines traditional SQL queries with vector-based search capabilities to provide enhanced search results.
 
 ## SQL Query for Hybrid Search
+
 The following SQL script demonstrates how to perform a hybrid search in a SQL database. It uses vector embeddings to find the most relevant products based on a textual description and combines with Available=True and Sale price of <=50.
 
 ## SQL Script
+
 ```SQL
 -- Declare the search text
 declare @search_text nvarchar(max) = 'help me plan a high school graduation party'
+
 -- Declare a variable to hold the search vector
-declare @search_vector varbinary(8000)
+declare @search_vector vector(1536)
 
 -- Generate the search vector using the 'create_embeddings' stored procedure
 exec dbo.create_embeddings @search_text, @search_vector output;
