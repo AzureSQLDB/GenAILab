@@ -22,8 +22,6 @@ returns a product description "**This bike is ridden by race winners. Developed 
         "n": 1
     }';
 
-    select @message;
-
     declare @ret int, @response nvarchar(max);
 
     exec @ret = sp_invoke_external_rest_endpoint 
