@@ -12,7 +12,7 @@ SELECT [Description] FROM [SalesLT].[ProductDescription] WHERE ProductDescriptio
 
 returns a product description "**This bike is ridden by race winners. Developed with the Adventure Works Cycles professional race team, it has a extremely light heat-treated aluminum frame, and steering that allows precision control.**" which will be sent to the DALL-E 3 text to image endpoint.
 
-    ```SQL
+```SQL
     declare @url nvarchar(max) = N'https://mlads.openai.azure.com/openai/deployments/mlads_dalle/images/generations?api-version=2024-05-01-preview';
     declare @headers nvarchar(300) = N'{"api-key": "OPENAI_KEY"}';
     declare @message nvarchar(max) = (SELECT [description] FROM [dbo].[walmart_product_details] WHERE id = 2);
@@ -36,7 +36,7 @@ returns a product description "**This bike is ridden by race winners. Developed 
 
     if (@ret=0)
         select json_value(@response, '$.result.data[0].url')
-    ```
+```
 
 1. Replace the **OPENAI_KEY** text with the Azure OpenAI Key.
 
