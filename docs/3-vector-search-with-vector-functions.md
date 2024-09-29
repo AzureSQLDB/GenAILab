@@ -38,3 +38,37 @@ FROM [dbo].[walmart_product_details]
 ORDER BY distance; -- Order by the closest distance
 ```
 
+As there are duplicate products, rewriting query to remove duplicates
+
+## SQL Script
+
+```SQL
+declare @search_text nvarchar(max) = 'help me plan a high school graduation party';
+
+-- Declare a variable to hold the search vector
+declare @search_vector vector(1536);
+
+-- Generate the search vector using the 'create_embeddings' stored procedure
+exec dbo.create_embeddings @search_text, @search_vector output;
+
+-- Perform the search query
+
+
+SELECT TOP(10) 
+  id, 
+  product_name, 
+  description, 
+  -- Calculate the cosine distance between the search vector and product description vectors
+  vector_distance('cosine', @search_vector, product_description_vector) AS distance
+FROM (
+  SELECT 
+    id, 
+    product_name, 
+    description, 
+    product_description_vector,
+    ROW_NUMBER() OVER (PARTITION BY product_name, description ORDER BY (SELECT NULL)) AS rn
+  FROM [dbo].[walmart_product_details]
+) AS unique_products
+WHERE rn = 1
+ORDER BY distance;
+```
