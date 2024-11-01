@@ -68,7 +68,7 @@ An embedding is a special format of data representation that machine learning mo
     ```SQL
     select top(10) id, product_name, [description], brand, category 
     into #t
-    from dbo.save_walmart_ecommerce_product_details
+    from [dbo].[walmart_product_details]
     go
 
     alter table #t 
@@ -86,13 +86,13 @@ An embedding is a special format of data representation that machine learning mo
     declare @vector vector(1536);
 
     while @i <= 10
-    BEGIN
-        set @text = (SELECT isnull([product_name],'') + ': ' + isnull([Description],'') from #t  where id = @i);
+    begin
+        set @text = (select isnull([product_name],'') + ': ' + isnull([Description],'') from #t  where id = @i);
 
         exec dbo.create_embeddings @text, @vector output;
         
-        update #t  set [product_description_vector] = @vector where id = @i;
+        update #t set [product_description_vector] = @vector where id = @i;
         
         set @i = @i + 1;
-    END
+    end
     ```
