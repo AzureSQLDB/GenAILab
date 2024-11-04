@@ -42,8 +42,6 @@ The first feature to be used with AI Content Safety is **Moderate text content**
 
     ```SQL
     create database scoped credential [https://mladscontentsafety.cognitiveservices.azure.com] with identity = 'HTTPEndpointHeaders', secret = N'{"Ocp-Apim-Subscription-Key":"CONTENT_KEY"}';
-
-
     ```
 
 1. Copy the following SQL and paste it into the SQL query editor.

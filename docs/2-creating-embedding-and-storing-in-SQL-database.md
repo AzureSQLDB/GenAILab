@@ -4,11 +4,17 @@ An embedding is a special format of data representation that machine learning mo
 
 ## Generate embeddings using OpenAI
 
+1. Safely store the credentials to access the Azure OpenAI API by using Database Scoped Credentials. Copy the following SQL and paste it into the SQL query editor. Make sure to replace the `OPENAI_KEY` with the OpenAI Key.
+
+    ```SQL
+    create database scoped credential [https://mlads.openai.azure.com/openai] 
+    with identity = 'HTTPEndpointHeaders', secret = N'{"api-key":"OPENAI_KEY"}';
+    ```
+
 1. Copy the following SQL and paste it into the SQL query editor. You can see from the T-SQL that we are going to create an embedding for a product name from data in the Azure SQL Database. The query `SELECT [description] FROM [dbo].[walmart_product_details] WHERE id = 2` returns "**5.0 oz., 100% pre-shrunk cotton Athletic Heather .....**" and will be sent to the OpenAI REST endpoint.
  
     ```SQL
     declare @url nvarchar(4000) = N'https://mlads.openai.azure.com/openai/deployments/mladsembeddings/embeddings?api-version=2024-02-01';
-    declare @headers nvarchar(300) = N'{"api-key": "OPENAI_KEY"}';
     declare @message nvarchar(max);
     SET @message = (SELECT [description]
                 FROM [dbo].[walmart_product_details]
@@ -20,7 +26,7 @@ An embedding is a special format of data representation that machine learning mo
     exec @ret = sp_invoke_external_rest_endpoint 
         @url = @url,
         @method = 'POST',
-        @headers = @headers,
+        @credential = [https://mlads.openai.azure.com/openai],
         @payload = @payload,
         @timeout = 230,
         @response = @response output;
