@@ -143,5 +143,10 @@ You want to find help customers to find the best set of products for somthing, f
 
     *"For a friend who loves to cook and experiment in the kitchen, consider the 'Growing up in a Korean Kitchen : A Cookbook' which offers a blend of memoir and recipes, perfect for exploring traditional and modern Korean dishes (7779). Another great choice could be 'The New Whole Foods Encyclopedia', a comprehensive resource for selecting, preparing, and using whole foods, which can inspire new culinary creations (10947). For a touch of fun and practicality, the 'Best Choice Products Mason Jars w/Labeling Stickers & Chalk, Set of 5' would be perfect for storing spices or homemade jams (7579)".*
 
+## End to end samples
 
+For more end-to-end samples you can start using these two:
+
+[Build a chatbot on your own data in 1 hour with Azure SQL, Langchain and Chainlit](https://devblogs.microsoft.com/azure-sql/build-a-chatbot-on-your-own-data-in-1-hour-with-azure-sql-langchain-and-chainlit/)
+[The ultimate chatbot?](https://devblogs.microsoft.com/azure-sql/the-ultimate-chatbot/)
 
