@@ -5,8 +5,8 @@ create or alter procedure dbo.create_embeddings
 )
 AS
 BEGIN
--- declare @text nvarchar(max) = (SELECT isnull([product_name],'') + ': ' + isnull([Description],'') from dbo.walmart_product_details where id = 25898)
-declare @url varchar(max) = 'https://<endpoint>/openai/deployments/embeddings/embeddings?api-version=2023-03-15-preview';
+
+declare @url varchar(max) = 'https://<endpoint>/openai/deployments/<deployment>/embeddings?api-version=2023-03-15-preview';
 declare @payload nvarchar(max) = json_object('input': @input_text);
 declare @response nvarchar(max);
 declare @retval int;

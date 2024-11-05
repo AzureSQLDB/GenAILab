@@ -2,6 +2,14 @@
 
 An embedding is a special format of data representation that machine learning models and algorithms can easily use. The embedding is an information dense representation of the semantic meaning of a piece of text. Each embedding is a vector of floating-point numbers, such that the distance between two embeddings in the vector space is correlated with semantic similarity between two inputs in the original format. For example, if two texts are similar, then their vector representations should also be similar.
 
+## Import Walmart Product Sample dataset
+
+A sample dataset of Walmart products is available to be downloaded for free from Kaggle:
+
+https://www.kaggle.com/datasets/mauridb/product-data-from-walmart-usa-with-embeddings
+
+ in the `walmart_product_details.csv` file. The dataset contains the following columns:
+
 ## Generate embeddings using OpenAI
 
 1. Safely store the credentials to access the Azure OpenAI API by using Database Scoped Credentials. Copy the following SQL and paste it into the SQL query editor. Make sure to replace the `OPENAI_KEY` with the OpenAI Key.
@@ -14,7 +22,7 @@ An embedding is a special format of data representation that machine learning mo
 1. Copy the following SQL and paste it into the SQL query editor. You can see from the T-SQL that we are going to create an embedding for a product name from data in the Azure SQL Database. The query `SELECT [description] FROM [dbo].[walmart_product_details] WHERE id = 2` returns "**5.0 oz., 100% pre-shrunk cotton Athletic Heather .....**" and will be sent to the OpenAI REST endpoint.
  
     ```SQL
-    declare @url nvarchar(4000) = N'https://mlads.openai.azure.com/openai/deployments/mladsembeddings/embeddings?api-version=2024-02-01';
+    declare @url nvarchar(1000) = N'https://mlads.openai.azure.com/openai/deployments/mladsembeddings/embeddings?api-version=2024-02-01';
     declare @message nvarchar(max);
     SET @message = (SELECT [description]
                 FROM [dbo].[walmart_product_details]
@@ -38,8 +46,6 @@ An embedding is a special format of data representation that machine learning mo
     declare @json_embedding nvarchar(max) = json_query(@response, '$.result.data[0].embedding');  
     select @json_embedding, CAST(@json_embedding AS VECTOR(1536)) as embedding;
     ```
-
-1. Replace the **OPENAI_KEY** text with the Model Deployment Key.
 
 1. Execute the SQL statement with the run button.
 
@@ -75,6 +81,7 @@ An embedding is a special format of data representation that machine learning mo
     select top(10) id, product_name, [description], brand, category 
     into #t
     from [dbo].[walmart_product_details]
+    order by id
     go
 
     alter table #t 
@@ -102,3 +109,8 @@ An embedding is a special format of data representation that machine learning mo
         set @i = @i + 1;
     end
     ```
+
+    > **WARNING** Please note that the above code is for demonstration purposes only, as it has been simplified to make it easier to understand.
+    For production use, you should consider using a more efficient way to generate embeddings and store them in the database, taking into account
+    batching requests to improve performance and reduce costs and also implement a retry-logic to make the solution resilient to failures or service back-offs.
+    An example is provided here: https://github.com/Azure-Samples/azure-sql-db-vectorizer
