@@ -48,7 +48,6 @@ The first feature to be used with AI Content Safety is **Moderate text content**
 
     ```SQL
     declare @url nvarchar(4000) = N'https://mladscontentsafety.cognitiveservices.azure.com/contentsafety/text:analyze?api-version=2023-10-01';
-    declare @headers nvarchar(300) = N'{"Ocp-Apim-Subscription-Key":"CONTENT_KEY"}';
     declare @payload nvarchar(max) = N'{
     "text": "I am going to kill all the ants in my house"
     }';

@@ -1,11 +1,6 @@
 /*
 	Cleanup if needed
 */
-if not exists(select * from sys.symmetric_keys where [name] = '##MS_DatabaseMasterKey##')
-begin
-	create master key encryption by password = 'Pa$$w0rd!'
-end
-go
 if exists(select * from sys.[external_data_sources] where name = 'openai_playground')
 begin
 	drop external data source [openai_playground];
@@ -32,7 +27,7 @@ create external data source [openai_playground]
 with 
 ( 
 	type = blob_storage,
- 	location = 'https://dmstore3.blob.core.windows.net/playground',
+ 	location = 'https://<ACCOUNT>.blob.core.windows.net/playground',
  	credential = [openai_playground]
 );
 go

@@ -4,9 +4,9 @@ create or alter procedure dbo.create_embeddings
     @embedding vector(1536) output
 )
 AS
-BEGIN
+begin
 
-declare @url varchar(max) = 'https://<endpoint>/openai/deployments/<deployment>/embeddings?api-version=2023-03-15-preview';
+declare @url varchar(max) = 'https://<OPENAI_ACCOUNT>.openai.azure.com/openai/deployments/<DEPLOYMENT>/embeddings?api-version=2023-03-15-preview';
 declare @payload nvarchar(max) = json_object('input': @input_text);
 declare @response nvarchar(max);
 declare @retval int;
@@ -16,7 +16,7 @@ begin try
     exec @retval = sp_invoke_external_rest_endpoint
         @url = @url,
         @method = 'POST',
-        @credential = [https://<endpoint>/],
+        @credential = [https://<OPENAI_ACCOUNT>.openai.azure.com/openai],
         @payload = @payload,
         @response = @response output;
 end try
@@ -43,4 +43,4 @@ declare @json_embedding nvarchar(max) = json_query(@response, '$.result.data[0].
 -- Convert the JSON array to a vector and set return parameter
 set @embedding = CAST(@json_embedding AS VECTOR(1536));
 
-END;
+end;

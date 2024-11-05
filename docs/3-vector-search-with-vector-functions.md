@@ -31,11 +31,15 @@ exec dbo.create_embeddings @search_text, @search_vector output;
 
 -- Perform the search query
 SELECT TOP(10) 
-  id, product_name, description, 
-  -- Calculate the cosine distance between the search vector and product description vectors
-  vector_distance('cosine', @search_vector, product_description_vector) AS distance
-FROM [dbo].[walmart_product_details]
-ORDER BY distance; -- Order by the closest distance
+    id, 
+    product_name, 
+    [description], 
+    -- Calculate the cosine distance between the search vector and product description vectors
+    VECTOR_DISTANCE('cosine', @search_vector, embedding) AS distance
+FROM 
+    [dbo].[walmart_product_details]
+ORDER BY 
+  distance; -- Order by the closest distance
 ```
 
 As there are duplicate products, rewriting query to remove duplicates
@@ -51,22 +55,23 @@ exec dbo.create_embeddings @search_text, @search_vector output;
 
 -- Perform the search query
 SELECT TOP(10) 
-  id, 
-  product_name, 
-  description, 
-  -- Calculate the cosine distance between the search vector and product description vectors
-  vector_distance('cosine', @search_vector, embedding) AS distance
-FROM (
-  SELECT 
     id, 
     product_name, 
     [description], 
-    embedding,
-    ROW_NUMBER() OVER (PARTITION BY product_name, description ORDER BY (SELECT NULL)) AS rn
-  FROM [dbo].[walmart_product_details]
+    -- Calculate the cosine distance between the search vector and product description vectors
+    VECTOR_DISTANCE('cosine', @search_vector, embedding) AS distance
+FROM (
+    SELECT 
+        id, 
+        product_name, 
+        [description], 
+        embedding,
+        ROW_NUMBER() OVER (PARTITION BY product_name, description ORDER BY (SELECT NULL)) AS rn
+    FROM 
+        [dbo].[walmart_product_details]
 ) AS unique_products
 WHERE rn = 1
 ORDER BY distance;
 ```
 
-Feel free to be creative and experiment with different search queries and vector functions to explore the semantic similarity between text data in your database.
+Feel free to be creative and experiment with different search queries and vector functions to explore the semantic similarity between text data in your database. 

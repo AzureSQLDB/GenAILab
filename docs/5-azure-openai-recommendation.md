@@ -28,7 +28,7 @@ You want to find help customers to find the best set of products for somthing, f
 1. Copy the following SQL and paste it into the SQL query editor.
 
     ```SQL
-    declare @search_text nvarchar(max) = 'help me plan a high school graduation party'
+    declare @search_text nvarchar(max) = 'help me plan a high school graduation party';
 
     -- Get the search vector for the search text
     declare @search_vector vector(1536)
@@ -39,7 +39,7 @@ You want to find help customers to find the best set of products for somthing, f
     with cte as 
     (
         select         
-            id, product_name, [description], product_description_vector,        
+            id, product_name, [description], embedding,        
             row_number() over (partition by product_name order by id ) as rn
         from 
             [dbo].[walmart_product_details]
@@ -57,7 +57,7 @@ You want to find help customers to find the best set of products for somthing, f
     )
     select top(50)
         id, product_name, [description],
-        vector_distance('cosine', @search_vector, product_description_vector) as distance
+        vector_distance('cosine', @search_vector, embedding) as distance
     into
         #t
     from 
@@ -71,6 +71,7 @@ You want to find help customers to find the best set of products for somthing, f
         @search_output = string_agg(cast(t.[id] as varchar(10)) +'=>' + t.[product_name] + '=>' + t.[description], char(13) + char(10))
     from 
         #t as t;
+    select @search_output;
 
     -- Generate the payload for the LLM
     declare @llm_payload nvarchar(max);
@@ -114,10 +115,11 @@ You want to find help customers to find the best set of products for somthing, f
 
     -- Invoke the LLM to get the response
     declare @retval int, @response nvarchar(max);
-    declare @headers nvarchar(300) = N'{"api-key": "OPENAI_KEY", "content-type": "application/json"}';
+    declare @headers nvarchar(300) = N'{"content-type": "application/json"}';
     exec @retval = sp_invoke_external_rest_endpoint
-        @url = 'https://mlads.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2023-03-15-preview',
+        @url = 'https://<OPENAI_ACCOUNT>.openai.azure.com/openai/deployments/gpt-4/chat/completions?api-version=2023-03-15-preview',
         @headers = @headers,
+        @credential = [https://<OPENAI_ACCOUNT>.openai.azure.com/openai],
         @method = 'POST',    
         @timeout = 120,
         @payload = @llm_payload,
@@ -133,7 +135,7 @@ You want to find help customers to find the best set of products for somthing, f
     ))
     ```
 
-1. Replace the **OPENAI_KEY** text with the Model Deployment Key. 
+1. Replace the **OPENAI_ACCOUNT** text with the OpenAI Account. 
 
 1. Execute the SQL statement with the run button.
 

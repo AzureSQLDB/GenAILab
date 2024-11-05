@@ -1,6 +1,7 @@
 /*
     Create staging table
 */
+drop table if exists [dbo].[walmart_product_details_source];
 create table [dbo].[walmart_product_details_source]
 (
     [id] [int] not null,
