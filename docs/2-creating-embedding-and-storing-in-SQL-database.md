@@ -69,6 +69,7 @@ An embedding is a special format of data representation that machine learning mo
     select top(10) id, product_name, [description], brand, category 
     into #t
     from [dbo].[walmart_product_details]
+    order by [id]
     go
 
     alter table #t 
